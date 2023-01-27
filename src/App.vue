@@ -1,46 +1,30 @@
-<script setup>
-
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <h1>{{ title }}</h1>
+  <ul>
+    <li v-for="task in task" :key="task.id">
+      {{ task.id }}. {{ task.name }}
+      
+      <div v-if="task.finished">
+        <button>Delete Task</button> 
+      </div>
+      
+      </li>
+  </ul>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+export default {
+  data() {
+    return {
+      title: "My To-Do App",
+      task: [
+        { id: 1, name: "Learn VUE js", finished: true },
+        { id: 2, name: "Build a Vue App", finished: false },
+        { id: 3, name: "Build Todo App", finished: false },
+      ],
+    };
+  },
+};
+</script>
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style></style>
