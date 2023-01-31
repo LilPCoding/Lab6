@@ -5,6 +5,7 @@ import './assets/main.css'
 
 createApp(App).mount('#app')
 
+
 // Import all of Bootstrap's CSS
 import"bootstrap/dist/css/bootstrap.css";
 // Import all of Bootstrap's JS
